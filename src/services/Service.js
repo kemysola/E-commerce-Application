@@ -5,7 +5,7 @@ const getAllProducts = (data) =>{
 }
 
 
-const getProductsById = async (id) => { // get deal by id, for privileged users 
+const getProductsById = async (id) => { 
     return await axios.get(`products/${id}`);
 };
 
