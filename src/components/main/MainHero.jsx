@@ -4,6 +4,10 @@ import fash1 from "../../data/fash1.jpg";
 import wristwatch from "../../data/wristwatch.jpg";
 import coat from "../../data/coat.jpg";
 import {BsMinecart} from 'react-icons/bs'
+import { minWidth } from "@mui/system";
+import SelectionView from "./SelectionView";
+import discount from '../../data/discount.png';
+
 
 function MainHero() {
   return (
@@ -16,7 +20,7 @@ function MainHero() {
               src={fash1}
               alt=""
               className=" "
-              width="450px"
+              width="500px"
               height="450px"
             />
           </div>
@@ -45,7 +49,7 @@ function MainHero() {
                     />
                     
                     <div class="card-body">
-                      <p class="card-text text-center">FEIY'S Beauty Coats</p>
+                      <p class="card-text text-right">FEIY'S Beauty Coats and Jackets</p>
                     </div>
                   </div>
                 </div>
@@ -91,7 +95,40 @@ function MainHero() {
             </Stack>
           </div>
         </div>
+
+        
+        
       </div>
+      {/* <div style={{maxHeight:'50vh', minHeight:'50vh', minWidth:'50vw' , maxWidth:'50vw'}} >
+        <div id="carouselExampleIndicators container" class="carousel slide" data-ride="carousel" data-intervals="100">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"  data-intervals="100"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1" data-intervals="100"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2" data-intervals="100"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src={fash1} alt="First slide"/>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src={wristwatch}alt="Second slide"/>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src={fash1} alt="Third slide"/>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div> */}
+<br/>
+<br/>
+<SelectionView/>
     </React.Fragment>
   );
 }
