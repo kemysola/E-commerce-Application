@@ -29,7 +29,7 @@ function App() {
   ]
   return (
     <React.Fragment>
-           <Navbar/>
+           {/* <Navbar/> */}
       <Switch>
       <Route exact path='/'>
         <Home/>

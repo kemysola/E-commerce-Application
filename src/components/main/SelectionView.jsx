@@ -38,7 +38,7 @@ function SelectionView() {
           </div>
         </div>
       </div>
-      <CardsCategory />
+      {/* <CardsCategory /> */}
     </React.Fragment>
   );
 }
