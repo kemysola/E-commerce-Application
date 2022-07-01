@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Service from "../../services/Service";
 import { FiEdit } from 'react-icons/fi';
+import Navbar from '../../navbar/Navbar'
+import CartContext from "../../context/cart/CartContext";
 
 import {
   Container,
@@ -14,6 +16,8 @@ import {
 import { useHistory, useParams } from 'react-router-dom';
 
 function AllProducts() {
+  //********************************* Cart CONTEXT ************************* */
+  const {addToCart} = useContext(CartContext)
 
   // *****************************      Store State using a useState hook             *******************************//
   const [products, setProducts] = useState([]);
@@ -38,27 +42,30 @@ function AllProducts() {
   }, []);
 
   // **********  Declare the maximu height for images and the max length for text descriptions ******//
-  const MAX_LENGTH = 21;
+  const MAX_LENGTH = 20;
   const Max_Height = '100px';
 
   
   
   return (
     <React.Fragment>
-      <div className="container-fluid row justify-content-center gx-2  ">
+      <div className="card-group container-fluid row justify-content-center gx-2 bg-light pt-3 ">
+        <products/>
         {/* <div class='col'></div> */}
         {products.map((product) => (
           <div
             key={product.id}
-            className="  col-lg-3 col-sm-6  col-md-4 align-self-end my-1 gx-3 border "
-            style={{ margin: "15px 10px" }}
+            className="  col-lg-3 col-sm-6  col-md-4 align-self-end my-1 gx-2 border "
+            style={{ margin: " 5px" }}
           >
-            <div className=" gx-5   p-3">
+            <div className=" gx-1 p-2" style={{ height: "380px", width: "200px" }}>
               <img
                 src={product.image}
                 alt="image"
                 className=""
-                style={{ height: "100px", width: "100px" }}
+                height='200px'
+                width='150px'
+                
               />
               <br />
               <br />
@@ -67,43 +74,47 @@ function AllProducts() {
                   <div>
                     {/********* check title character and limit it to max_length declared above the jsx  ***********/}
 
-                    {`${product.title.substring(0, MAX_LENGTH)}...`}
+                    <p>{`${product.title.substring(0, MAX_LENGTH)}...`}</p>
                     <div>
-                      <br />
-                      <p style={{ fontSize: "16px", fontWeight: "bold" }}>
+                      <p style={{ fontSize: "16px", fontWeight: "bold"}} 
+                >
                         $ {product.price}
                       </p>
-                      <button style={{}}>View</button>{" "}
+                      {/* <button style={{}}>View</button>{"" } */}
+                   
                       <span
-									className="icon__wrapper" style={{background:'red'}}
-									onClick={() =>
+									className="icon__wrapper" style={{background:'black',color:'white', padding:'5px',margin:'0 10px'}}
+									onClick={() => 
 										(window.location.href = `/view_products/${product.id}`)
 									}
-								>viewww</span>
+								>view</span>
+                <button onClick={() => addToCart(product) } >Add</button>
+
+                      
+                     
 
 
                     </div>
                   </div>
                 ) : (
                   <div>
+                    <div>
                     <p>{product.title}</p>
-                    <br />
                     <p style={{ fontSize: "16px", fontWeight: "bold" }}>
                       $ {product.price}
-                      
-                    </p>{product.rating.count}
-                    <br/>
-                   
-                    <button style={{}}>View</button>{""}
+                      </p>
+                    {/* <button style={{}}>View</button>{""} */}
                     <span
 									className="icon__wrapper"
-                  style={{background:'blue'}}
+                  style={{background:'blue', color:'white', padding:'5px'}}
 									onClick={() =>
 										(window.location.href = `/view_products/${product.id}`)
                     
 									}
-								>viewww</span>
+								>view</span>
 
+                    </div>
+                    
                   </div>
                 )}
               </div>

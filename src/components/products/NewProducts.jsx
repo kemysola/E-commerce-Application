@@ -1,8 +1,13 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect,useContext } from "react";
 import { useParams } from "react-router-dom";
 import Service from "../../services/Service";
+import CartContext from "../../context/cart/CartContext";
+import ProCarts from "../productCarts/ProCarts";
+
+
 
 function NewProducts(props) {
+  const {addToCart} = useContext(CartContext)
   const [product, setProduct] = useState({})
   const {id} = useParams();
 
@@ -22,6 +27,7 @@ function NewProducts(props) {
     
   },[id])
   
+  console.log(product)
  
 
   
@@ -32,14 +38,19 @@ function NewProducts(props) {
     <div class="col">
       <img src={product.image} alt='image' height='350px'/>
       <p style={{fontWeight: 'bold', margin:'5px'}}> PRICE :₦{product.price}</p>
+      <button onClick={() => addToCart(product) } >Add</button>
+										
+
     </div>
     <div class="col">
-    <h1 className="text-danger">hello you {id}</h1>
-      <p>{product.title}</p>
-      <p>{product.price}</p>
+    {/* <h1 className="text-danger">hello you {id}</h1> */}
+      <p style={{fontWeight:'bold'}}>{product.title}</p>
       <p>{product.description}</p>
+      <button onClick={() => addToCart(product) 										
+} >Add</button>
     </div>
-    </div>
+    </div> 
+<ProCarts/>
     </div>
     
   )

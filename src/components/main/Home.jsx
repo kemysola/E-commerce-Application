@@ -1,16 +1,25 @@
-import React from 'react'
-import Navbar from '../../navbar/Navbar'
-import MainHero from './MainHero.jsx'
+import React from "react";
+import Navbar from "../../navbar/Navbar";
+import MainHero from "./MainHero.jsx";
+import AllProducts from "../products/AllProducts";
+import wristwatch from "../../data/wristwatch.jpg";
+import fash1 from "../../data/fash1.jpg";
+import Login from "../auth/Login";
 function Home() {
-    return (
-        <React.Fragment>
-            <Navbar/>
-            <br/>
-            <br/>
-            <MainHero/>
-        </React.Fragment>
-        
-    )
+  return (
+    <React.Fragment>
+
+      {/* <Login /> */}
+      {/* <Navbar/> */}
+      {/* <MainHero/> */}
+      
+      <AllProducts/>
+      
+      <br />
+      <br />
+      {/* <AllProducts/> */}
+    </React.Fragment>
+  );
 }
 
-export default Home
+export default Home;
